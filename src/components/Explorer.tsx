@@ -59,7 +59,14 @@ const Explorer: React.FC = () => {
   };
 
   if (isLoading) return <Loading />;
-  if (error) return <div>Error fetching jobs</div>;
+  if (!error)
+    return (
+      <div className="w-full h-full flex justify-center items-center">
+        <h2 className="lg:text-6xl text-4xl font-bold text-center">
+          Error fetching jobs, Try Again !
+        </h2>
+      </div>
+    );
 
   return (
     <div className="p-6 lg:px-64 md:px-32 flex flex-col gap-9">
